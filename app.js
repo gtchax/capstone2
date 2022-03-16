@@ -6,10 +6,12 @@ const cors = require("cors");
 const BASEURL = "https://itunes.apple.com/search?";
 const app = express();
 
-app.use(cors());
+//===== Middleware
+app.use(cors()); // Avoids the cross origin request error on the frontend
 app.use(express.json());
-app.use(helmet());
+app.use(helmet()); // Adds security to the API
 
+// ===== Routes
 app.post("/api", (req, res) => {
   let { media, search } = req.body;
   request(
@@ -21,7 +23,6 @@ app.post("/api", (req, res) => {
       return res.send(body);
     }
   );
-  //   res.send(data);
 });
 
 const PORT = process.env.PORT || 3002;
