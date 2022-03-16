@@ -12,10 +12,7 @@ media from the itunes API.
 ### Table of Contents
 
     1. Home page
-    2. Catalogue page
-    3. Cart page
-    4. Contact page
-    5. Login page
+    2. Favorites page
 
 ### Installation
 
