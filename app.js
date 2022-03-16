@@ -3,9 +3,6 @@ const helmet = require("helmet");
 const request = require("request");
 const cors = require("cors");
 
-//temporary data set whilst offline
-const data = require("./data");
-
 const BASEURL = "https://itunes.apple.com/search?";
 const app = express();
 
@@ -17,7 +14,7 @@ app.post("/api", (req, res) => {
   let { media, search } = req.body;
   request(
     `${BASEURL}term=${search}&media=${media}&limit=10`,
-    // `${BASEURL}term=adele&media=all&limit=10`,
+
     (err, _, body) => {
       if (err) return res.send(err);
 
